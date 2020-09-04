@@ -1,0 +1,96 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* body {
+    background-color: gainsboro;
+} */
+
+.screen {
+    border: gainsboro 1px solid;
+    width: 800px;
+    background-color: white;
+}
+
+header {
+    padding: 15px 10px;
+    background-color: #8BEAFF;
+    color: white;
+}
+
+.deadlineForm {
+    padding: 20px 0px;
+}
+
+.container{
+    display: flex;
+}
+
+.input {
+    margin-top: 10px;
+}
+
+label {
+    color: grey;
+    font-size: 12pt;
+}
+
+input {
+    color: grey;
+    font-size: 10pt;
+    border: unset;
+    outline: unset;
+    border: #c4c4c4 solid 1px;
+    padding: 2px;
+}
+
+input:focus{
+    border: 1px solid #8BEAFF;
+}
+
+.tambah-btn {
+    margin-left: 0px;
+    margin-top: 16px;
+    border: unset;
+    outline: unset;
+    background-color: #8BEAFF;
+    color: white;
+    font-weight: bolder;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.deadline {
+    padding: 10px;
+}
+
+table {
+    width: 100%;
+}
+
+table th{
+    color: grey;
+    font-weight: bold;
+}
+
+table td{
+    color: grey;
+    text-align: center;
+    font-size: 10pt;
+    padding: 10px;
+}
+
+
+@media only screen and (max-width: 600px){
+    .container {
+        flex-direction: column;
+    }
+
+    .tambah-btn{
+        text-align: center;
+    }
+    .screen{
+        width: 100%;
+    }
+}

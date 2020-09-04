@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="screen">
+        <header>
+            <h1>Tugas Kuliah Saya</h1>
+        </header>
+
+        <div class="deadlineForm">
+            <form>
+                <div class="container">
+                    <div class="input">
+                        <label for="matkul">Mata Kuliah</label>
+                        <br>
+                        <input type="text" id="matkul" required>
+                    </div>
+                   
+                    <div class="input">
+                        <label for="tugas">Tugas</label>
+                        <br>
+                        <input type="text" id="tugas" required>
+                    </div>
+
+                    <div class="input">
+                        <label for="tugas">Deadline</label>
+                        <br>
+                        <input type="text" id="tugas" required>
+                    </div>
+
+                    <div class="input">
+                        <input type="submit" class="tambah-btn" value="Tambah">
+                    </div>
+                       
+                </div>
+            </form>
+        </div>
+        <hr style="border: unset; border-bottom: 1px solid gainsboro;">
+        <br>
+        <div class="deadline">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mata Kuliah</th>
+                        <th>Sisa Waktu</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Pemrograman Web</td>
+                        <td>27 Hari 25 Jam 10 Menit 57 Detik</td>
+                        <td><a href="">detail </a> | <a href=""> hapus</a></td>
+                    </tr>
+                    <tr>
+                        <td>Pemrograman Web</td>
+                        <td>27 Hari 25 Jam 10 Menit 57 Detik</td>
+                        <td><a href="">detail </a> | <a href=""> hapus</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
