@@ -1,6 +1,7 @@
 * {
     margin: 0 auto;
     padding: 0;
+    font-family: 'Grandstander', cursive;
 }
 
 /* body {
@@ -38,15 +39,16 @@ label {
 
 input {
     color: grey;
-    font-size: 10pt;
+    font-size: 12pt;
     border: unset;
     outline: unset;
-    border: #c4c4c4 solid 1px;
-    padding: 2px;
+    border: #c4c4c4 solid 2px;
+    border-radius: 8px;
+    padding: 5px;
 }
 
 input:focus{
-    border: 1px solid #8BEAFF;
+    border: 2px solid #8BEAFF;
 }
 
 .tambah-btn {
