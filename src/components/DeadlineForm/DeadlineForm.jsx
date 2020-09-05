@@ -4,6 +4,7 @@ import { withTheme } from 'emotion-theming';
 import Container from '../../layout/Container';
 import Button from '../Button/Button';
 import PropTypes from 'prop-types';
+import DateTimePicker from 'react-datetime-picker';
 
 const StyledItem = styled.div`
     margin-top: 10px;
@@ -12,6 +13,15 @@ const StyledItem = styled.div`
 const StyledLabel = styled.label`
     color: ${props => props.theme.color.primary.oldgrey};
     font-size: 12pt;
+`;
+
+const StyledDateTimePicker = styled.div`
+    color: grey;
+    font-size: 10pt;
+    border: unset;
+    outline: unset;
+    padding: 5px;
+    
 `;
 
 const StyledInput = styled.input`
@@ -31,8 +41,10 @@ class DeadlineForm extends React.Component {
     state = {
         mataKuliah: '',
         tugas: '',
-        due: ''
+        due: '',
     }
+
+    onChange = date => this.setState({ date })
 
     handleOnChangeMatkul = e => {
         this.setState({
@@ -63,6 +75,7 @@ class DeadlineForm extends React.Component {
             return;
         }
             addDeadline(mataKuliah, tugas, due);
+            console.log(due);
             this.setState({
                 mataKuliah: '',
                 tugas: '',
@@ -106,13 +119,19 @@ class DeadlineForm extends React.Component {
                         <StyledItem>
                             <StyledLabel theme={theme} id="deadline">Deadline</StyledLabel>
                             <br></br>
-                            <StyledInput
+                            {/* <StyledInput
                                 onChange={this.handleOnChangeDeadline} 
                                 value={due} 
                                 theme={theme} 
                                 type="text" 
                                 id="deadline" 
-                            />
+                            /> */}
+                            <StyledDateTimePicker>
+                                <DateTimePicker
+                                onChange={this.onChange}
+                                value={due}
+                                />
+                            </StyledDateTimePicker>
                         </StyledItem>
     
                         <StyledItem>

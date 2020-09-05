@@ -37,8 +37,8 @@ class Button extends React.Component {
 
     static propTypes = {
         text: PropTypes.string.isRequired,
-        margin: PropTypes.string.isRequired,
-        onClick: PropTypes.func.isRequired
+        margin: PropTypes.string,
+        onClick: PropTypes.func
     }
 }
 
