@@ -28,34 +28,39 @@ const StyledInput = styled.input`
 
 class DeadlineForm extends React.Component {
     render(){
-        const { theme } = this.props;
+        const { theme, showForm, addDeadline } = this.props;
 
-        return (
-            <Container>
-                <StyledItem>
-                    <StyledLabel theme={theme} id="matkul">Mata Kuliah</StyledLabel>
-                    <br></br>
-                    <StyledInput theme={theme} type="text" id="matkul"></StyledInput>
-                </StyledItem>
-
-                <StyledItem>
-                    <StyledLabel theme={theme} id="tugas">Tugas</StyledLabel>
-                    <br></br>
-                    <StyledInput theme={theme} type="text" id="tugas"></StyledInput>
-                </StyledItem>
-
-                <StyledItem>
-                    <StyledLabel theme={theme} id="deadline">Deadline</StyledLabel>
-                    <br></br>
-                    <StyledInput theme={theme} type="text" id="deadline"></StyledInput>
-                </StyledItem>
-
-                <StyledItem>
-                    <Button text="Tambah" backgroundColor={theme.color.primary.skyblue} margin="24px 0px"  />
-                </StyledItem>
-                
-            </Container>
-        )
+        if(showForm){
+            return (
+                    <Container>
+                        <StyledItem>
+                            <StyledLabel theme={theme} id="matkul">Mata Kuliah</StyledLabel>
+                            <br></br>
+                            <StyledInput theme={theme} type="text" id="matkul"></StyledInput>
+                        </StyledItem>
+    
+                        <StyledItem>
+                            <StyledLabel theme={theme} id="tugas">Tugas</StyledLabel>
+                            <br></br>
+                            <StyledInput theme={theme} type="text" id="tugas"></StyledInput>
+                        </StyledItem>
+    
+                        <StyledItem>
+                            <StyledLabel theme={theme} id="deadline">Deadline</StyledLabel>
+                            <br></br>
+                            <StyledInput theme={theme} type="text" id="deadline"></StyledInput>
+                        </StyledItem>
+    
+                        <StyledItem>
+                            <Button addDeadline={addDeadline} text="Tambah" color="white" backgroundColor={theme.color.primary.skyblue} margin="24px 0px"  />
+                        </StyledItem>
+                        
+                    </Container>
+            )
+        }else{
+            return null;
+        }
+        
     }
 }
 

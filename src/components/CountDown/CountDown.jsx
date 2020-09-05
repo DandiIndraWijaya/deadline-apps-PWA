@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { withTheme } from 'emotion-theming';
 
 const StyledCountDown = styled.span`
-    font-weight: bold;
+    font-weight: light;
 `;
 
 class CountDown extends React.Component {

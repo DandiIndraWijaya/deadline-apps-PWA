@@ -7,70 +7,40 @@ import Deadline from '../components/Deadline/Deadline';
 
 
 class DeadLineList extends React.Component{
+    state = {
+        showForm: false,
+        deadlines: [
+            { mataKuliah: "Web Programming", tugas: "Membuat Layout Web", due: "28 September 2020" },
+            { mataKuliah: "Praktikum Web Programming", tugas: "Membuat Layout Web", due: "15 September 2020" },
+            { mataKuliah: "Media", tugas: "Membuat Brosur", due: "5 September 2020" },
+        ]
+    }
+
+    showFormToggle = () => 
+        this.setState({
+            showForm: !this.state.showForm
+        });
+
+    addDeadline = (mataKuliah, tugas, due) => {
+        const { deadlines } = this.state.deadlines;
+        const addedDeadline = [...deadlines, {mataKuliah: mataKuliah, tugas: tugas, due: due}];
+        this.setState({
+            deadlines: addedDeadline
+        })
+    }
+    
+
     render(){
+        const { showForm } = this.state;
+        const { deadlines } = this.state;
+
         return (
             <Screen>
-                <Header />
-                <DeadlineForm />
+                <Header showForm={showForm} showFormToggle={this.showFormToggle} />
+                <DeadlineForm showForm={showForm}  />
                 <hr/>
-                <Deadline />
+                <Deadline deadlines={deadlines} addDeadline={this.addDeadline}  />
             </Screen>
-            // <div className="screen">
-            //      <header>
-            //         <h1>Tugas Kuliah Saya</h1>
-            //     </header>
-
-            //     <div className="container">
-                    
-            //             <div className="item">
-            //                 <label for="matkul">Mata Kuliah</label>
-            //                 <br></br>
-            //                 <input type="text" id="matkul" required></input>
-            //             </div>
-
-            //             <div className="item">
-            //                 <label for="tugas">Tugas</label>
-            //                 <br></br>
-            //                 <input type="text" id="tugas" required></input>
-            //             </div>
-
-            //             <div className="item">
-            //                 <label for="tugas">Deadline</label>
-            //                 <br></br>
-            //                 <input type="text" id="tugas" required></input>
-            //             </div>
-
-            //             <div className="item">
-            //                 <input type="submit" className="tambah-btn" value="Tambah"></input>
-            //             </div>
-            //     </div>
-
-                
-            //     <div className="deadlineList">
-            //         <table>
-            //             <thead>
-            //                 <tr>
-            //                     <th>Mata Kuliah</th>
-            //                     <th>Sisa Waktu</th>
-            //                     <th>Aksi</th>
-            //                 </tr>
-            //             </thead>
-
-            //             <tbody>
-            //                 <tr>
-            //                     <td>Pemrograman Web</td>
-            //                     <td>27 Hari 25 Jam 10 Menit 57 Detik</td>
-            //                     <td><a href="">detail </a> | <a href=""> hapus</a></td>
-            //                 </tr>
-            //                 <tr>
-            //                     <td>Pemrograman Web</td>
-            //                     <td>27 Hari 25 Jam 10 Menit 57 Detik</td>
-            //                     <td><a href="">detail </a> | <a href=""> hapus</a></td>
-            //                 </tr>
-            //             </tbody>
-            //         </table>
-            //     </div>
-            // </div>
         )
     }
 }

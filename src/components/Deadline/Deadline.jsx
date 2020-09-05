@@ -4,7 +4,7 @@ import { withTheme } from 'emotion-theming';
 import CountDown from '../CountDown/CountDown';
 
 const StyledDeadline = styled.div`
-    padding: 10px;
+    padding: 5px;
 `;
 
 const Styledtable = styled.table`
@@ -20,13 +20,13 @@ const Styledth = styled.th`
 const Styledtd = styled.td`
 color: ${props => props.theme.color.primary.oldgrey};
     text-align: center;
-    font-size: 10pt;
+    font-size: 8pt;
     padding: 10px;
 `;
 
 class Deadline extends React.Component{
     render(){
-        const { theme } = this.props
+        const { theme, deadlines } = this.props
 
         return (
             <StyledDeadline>
@@ -40,16 +40,19 @@ class Deadline extends React.Component{
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <Styledtd theme={theme}>Pemrograman Web</Styledtd>
-                            <Styledtd theme={theme}><CountDown /></Styledtd>
-                            <Styledtd theme={theme}><a href="#">detail </a> | <a href="#"> hapus</a></Styledtd>
-                        </tr>
-                        <tr>
-                            <Styledtd theme={theme}>Pemrograman Web</Styledtd>
-                            <Styledtd theme={theme}><CountDown /></Styledtd>
-                            <Styledtd theme={theme}><a href="#">detail </a> | <a href="#"> hapus</a></Styledtd>
-                        </tr>
+                        {
+                            deadlines.length > 0 && 
+                            deadlines.map((deadline, index ) => {
+                                return (
+                                    <tr>
+                                        <Styledtd theme={theme}>{deadline.mataKuliah}</Styledtd>
+                                        <Styledtd theme={theme}><CountDown /></Styledtd>
+                                        <Styledtd theme={theme}><a href="#">detail </a> | <a href="#"> hapus</a></Styledtd>
+                                    </tr>
+                                )
+                            })
+                        }
+                        
                     </tbody>
                 </Styledtable>
             </StyledDeadline>

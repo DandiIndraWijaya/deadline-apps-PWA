@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { withTheme } from 'emotion-theming';
+import Button from '../Button/Button';
+import PropTypes from 'prop-types';
 
 
 const StyledHeader = styled.header`
@@ -10,13 +12,23 @@ const StyledHeader = styled.header`
 `;
 
 class Header extends React.Component {
+
+
     render(){
-        const { theme } = this.props;
+        const { theme, showFormToggle, showForm } = this.props;
         return (
-            <StyledHeader theme={theme}>
-                <h1>Tugas Kuliah Saya</h1>
-            </StyledHeader>
+            <section>
+                <StyledHeader theme={theme}>
+                    <h1>Tugas Kuliah Saya</h1>
+                </StyledHeader>
+                <Button onClick={showFormToggle} text={showForm ? 'Selesai' : 'Tambah'} backgroundColor="white" margin="10px" color={theme.color.primary.skyblue} fontSize="18px" />
+            </section>
         )
+    }
+
+    static propTypes = {
+        showForm: PropTypes.bool.isRequired,
+        showFormToggle: PropTypes.func.isRequired
     }
 }
 
