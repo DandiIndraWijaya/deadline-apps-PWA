@@ -25,7 +25,7 @@ class Button extends React.Component {
         const { text, color, backgroundColor, margin, fontSize, onClick, index } = this.props;
 
         return(
-            <StyledButton onClick={onClick(index)} fontSize={fontSize} color={color} margin={margin} backgroundColor={backgroundColor}>
+            <StyledButton data-index={index} onClick={onClick} fontSize={fontSize} color={color} margin={margin} backgroundColor={backgroundColor}>
                 {text}
             </StyledButton>
         )
@@ -38,7 +38,7 @@ class Button extends React.Component {
     static propTypes = {
         text: PropTypes.string.isRequired,
         margin: PropTypes.string.isRequired,
-        onClick: PropTypes.func
+        onClick: PropTypes.func.isRequired
     }
 }
 

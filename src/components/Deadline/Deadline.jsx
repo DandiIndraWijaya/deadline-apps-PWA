@@ -45,10 +45,10 @@ class Deadline extends React.Component{
                             deadlines.length > 0 && 
                             deadlines.map((deadline, index ) => {
                                 return (
-                                    <tr>
+                                    <tr key={index}>
                                         <Styledtd theme={theme}>{deadline.mataKuliah}</Styledtd>
                                         <Styledtd theme={theme}><CountDown /></Styledtd>
-                                        <Styledtd theme={theme}><a href="#">detail </a> | <Button text="Hapus" color="red" backgroundColor="white" onClick={deleteDeadline} index={index}  /> </Styledtd>
+                                        <Styledtd theme={theme}><a href="#">detail </a> | <Button text="Hapus" color="red"  margin="0" backgroundColor="white" index={index} onClick={deleteDeadline} /> </Styledtd>
                                     </tr>
                                 )
                             })
@@ -59,6 +59,8 @@ class Deadline extends React.Component{
             </StyledDeadline>
         )
     }
+
+    
 }
 
 

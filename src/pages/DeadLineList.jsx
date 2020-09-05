@@ -13,7 +13,8 @@ class DeadLineList extends React.Component{
             { mataKuliah: "Web Programming", tugas: "Membuat Layout Web", due: "28 September 2020" },
             { mataKuliah: "Praktikum Web Programming", tugas: "Membuat Layout Web", due: "15 September 2020" },
             { mataKuliah: "Media", tugas: "Membuat Brosur", due: "5 September 2020" },
-        ]
+        ],
+        index: null
     }
 
     showFormToggle = () => {
@@ -30,9 +31,16 @@ class DeadLineList extends React.Component{
         });
     }
 
-    deleteDeadline = index => {
+
+
+    deleteDeadline = e => {
+        const index = e.target.dataset.index; 
         const { deadlines } = this.state;
         deadlines.splice(index, 1)
+        console.log(index)
+        this.setState({
+            deadlines: deadlines
+        })
     }
     
 
@@ -45,7 +53,7 @@ class DeadLineList extends React.Component{
                 <Header showForm={showForm} showFormToggle={this.showFormToggle} />
                 <DeadlineForm showForm={showForm} addDeadline={this.addDeadline}  />
                 <hr/>
-                <Deadline deleteDeadline={this.deleteDeadline} deadlines={deadlines} />
+                <Deadline deadlineIndex={this.state.index} deleteDeadline={this.deleteDeadline} deadlines={deadlines} />
             </Screen>
         )
     }
