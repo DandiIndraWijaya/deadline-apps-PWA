@@ -19,9 +19,9 @@ class Header extends React.Component {
         return (
             <section>
                 <StyledHeader theme={theme}>
-                    <h1>Tugas Kuliah Saya</h1>
+                    <h1 style={{ right: '5px' }}>Tugas Kuliah Saya</h1>
                 </StyledHeader>
-                <Button onClick={showFormToggle} text={showForm ? 'Selesai' : 'Tambah'} backgroundColor="white" margin="10px" color={theme.color.primary.skyblue} fontSize="18px" />
+                <Button onClick={showFormToggle} text={showForm ? 'Selesai' : 'Tambah Tugas'} backgroundColor="white" margin="10px" color={theme.color.primary.skyblue} fontSize="18px" />
             </section>
         )
     }

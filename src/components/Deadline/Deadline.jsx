@@ -25,39 +25,54 @@ color: ${props => props.theme.color.primary.oldgrey};
     padding: 10px;
 `;
 
+const StyledNoTask = styled.div`
+    text-align: center;
+    margin: 30px;
+    color: grey;
+`;
+
 class Deadline extends React.Component{
     render(){
         const { theme, deadlines, deleteDeadline } = this.props
 
-        return (
-            <StyledDeadline>
-                <Styledtable>
-                    <thead>
-                        <tr>
-                            <Styledth theme={theme}>Mata Kuliah</Styledth>
-                            <Styledth theme={theme}>Sisa Waktu</Styledth>
-                            <Styledth theme={theme}>Aksi</Styledth>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        {
-                            deadlines.length > 0 && 
-                            deadlines.map((deadline, index ) => {
-                                return (
-                                    <tr key={index}>
-                                        <Styledtd theme={theme}>{deadline.mataKuliah}</Styledtd>
-                                        <Styledtd theme={theme}><CountDown /></Styledtd>
-                                        <Styledtd theme={theme}><a href="#">detail </a> | <Button text="Hapus" color="red"  margin="0" backgroundColor="white" index={index} onClick={deleteDeadline} /> </Styledtd>
-                                    </tr>
-                                )
-                            })
-                        }
-                        
-                    </tbody>
-                </Styledtable>
-            </StyledDeadline>
-        )
+        if(deadlines.length > 0){
+            return (
+                <StyledDeadline>
+                    <Styledtable>
+                        <thead>
+                            <tr>
+                                <Styledth theme={theme}>Mata Kuliah</Styledth>
+                                <Styledth theme={theme}>Sisa Waktu</Styledth>
+                                <Styledth theme={theme}>Aksi</Styledth>
+                            </tr>
+                        </thead>
+    
+                        <tbody>
+                            {
+                                deadlines.length > 0 && 
+                                deadlines.map((deadline, index ) => {
+                                    return (
+                                        <tr key={index}>
+                                            <Styledtd theme={theme}>{deadline.mataKuliah}</Styledtd>
+                                            <Styledtd theme={theme}><CountDown /></Styledtd>
+                                            <Styledtd theme={theme}><a href="#">detail </a> | <Button text="Hapus" color="red"  margin="0" backgroundColor="white" index={index} onClick={deleteDeadline} /> </Styledtd>
+                                        </tr>
+                                    )
+                                })
+                            }
+                            
+                        </tbody>
+                    </Styledtable>
+                </StyledDeadline>
+            )}else{
+                return (
+                <StyledNoTask>
+                    <h1>Tidak ada tugas :)</h1> 
+                </StyledNoTask>
+                )
+            }
+        
+        
     }
 
     

@@ -118,13 +118,6 @@ class DeadlineForm extends React.Component {
                         <StyledItem>
                             <StyledLabel theme={theme} id="deadline">Deadline</StyledLabel>
                             <br></br>
-                            {/* <StyledInput
-                                onChange={this.handleOnChangeDeadline} 
-                                value={due} 
-                                theme={theme} 
-                                type="text" 
-                                id="deadline" 
-                            /> */}
                             <StyledDateTimePicker>
                                 <DateTimePicker
                                 locale="hu-HU"
