@@ -5,86 +5,9 @@
   font-family: 'Grandstander', cursive;
 }
 
-/* body {
-  background-color: gainsboro;
-} */
-
-/* .screen {
-  border: gainsboro 1px solid;
-  width: 800px;
-  background-color: white;
-}
-
-header {
-  padding: 15px 10px;
-  background-color: #8BEAFF;
-  color: white;
-}
-
-.deadlineForm {
-  padding: 20px 0px;
-}
-
-.container{
-  display: flex;
-  flex-direction: row;
-}
-
-.item {
-  margin-top: 10px;
-}
-
-label {
-  color: grey;
-  font-size: 12pt;
-}
-
-input {
-  color: grey;
-  font-size: 12pt;
-  border: unset;
-  outline: unset;
-  border: #c4c4c4 solid 2px;
-  border-radius: 8px;
-  padding: 5px;
-}
-
-input:focus{
-  border: 2px solid #8BEAFF;
-} */
-
-/* .tambah-btn {
-  margin-left: 0px;
-  margin-top: 24px;
-  border: unset;
-  outline: unset;
-  background-color: #8BEAFF;
-  color: white;
+.countdown p{
   font-weight: bolder;
-  padding: 5px;
-  cursor: pointer;
-} */
-
-/* .deadline {
-  padding: 10px;
-} */
-
-/* table {
-  margin-top: 10px;
-  width: 100%;
 }
-
-table th{
-  color: grey;
-  font-weight: bold;
-}
-
-table td{
-  color: grey;
-  text-align: center;
-  font-size: 10pt;
-  padding: 10px;
-} */
 
 
 @media only screen and (max-width: 600px){

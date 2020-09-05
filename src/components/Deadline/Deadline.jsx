@@ -54,7 +54,7 @@ class Deadline extends React.Component{
                                     return (
                                         <tr key={index}>
                                             <Styledtd theme={theme}>{deadline.mataKuliah}</Styledtd>
-                                            <Styledtd theme={theme}><CountDown /></Styledtd>
+                                            <Styledtd theme={theme}><CountDown deadline={deadline.due} /></Styledtd>
                                             <Styledtd theme={theme}><a href="#">detail </a> | <Button text="Hapus" color="red"  margin="0" backgroundColor="white" index={index} onClick={deleteDeadline} /> </Styledtd>
                                         </tr>
                                     )

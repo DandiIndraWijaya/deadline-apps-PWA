@@ -46,7 +46,8 @@ class DeadLineList extends React.Component{
         deadlines.splice(index, 1);
         this.setState({
             deadlines: deadlines
-        })
+        });
+        this.render();
     }
     
 
