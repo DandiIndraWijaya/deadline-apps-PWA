@@ -24,6 +24,9 @@ color: ${props => props.theme.color.primary.oldgrey};
     text-align: center;
     font-size: 8pt;
     padding: 10px;
+    @media (min-width: 600px){
+        font-size: 12pt;
+    }
 `;
 
 const StyledNoTask = styled.div`
