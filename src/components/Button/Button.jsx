@@ -22,10 +22,10 @@ const StyledButton = styled.button`
 
 class Button extends React.Component {
     render(){
-        const { text, color, backgroundColor, margin, fontSize, onClick } = this.props;
+        const { text, color, backgroundColor, margin, fontSize, onClick, index } = this.props;
 
         return(
-            <StyledButton onClick={onClick} fontSize={fontSize} color={color} margin={margin} backgroundColor={backgroundColor}>
+            <StyledButton onClick={onClick(index)} fontSize={fontSize} color={color} margin={margin} backgroundColor={backgroundColor}>
                 {text}
             </StyledButton>
         )

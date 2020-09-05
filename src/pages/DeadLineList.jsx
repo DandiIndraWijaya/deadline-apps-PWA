@@ -16,17 +16,23 @@ class DeadLineList extends React.Component{
         ]
     }
 
-    showFormToggle = () => 
+    showFormToggle = () => {
         this.setState({
             showForm: !this.state.showForm
         });
+    }
 
     addDeadline = (mataKuliah, tugas, due) => {
-        const { deadlines } = this.state.deadlines;
+        const { deadlines } = this.state;
         const addedDeadline = [...deadlines, {mataKuliah: mataKuliah, tugas: tugas, due: due}];
         this.setState({
             deadlines: addedDeadline
-        })
+        });
+    }
+
+    deleteDeadline = index => {
+        const { deadlines } = this.state;
+        deadlines.splice(index, 1)
     }
     
 
@@ -37,9 +43,9 @@ class DeadLineList extends React.Component{
         return (
             <Screen>
                 <Header showForm={showForm} showFormToggle={this.showFormToggle} />
-                <DeadlineForm showForm={showForm}  />
+                <DeadlineForm showForm={showForm} addDeadline={this.addDeadline}  />
                 <hr/>
-                <Deadline deadlines={deadlines} addDeadline={this.addDeadline}  />
+                <Deadline deleteDeadline={this.deleteDeadline} deadlines={deadlines} />
             </Screen>
         )
     }

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { withTheme } from 'emotion-theming';
 import CountDown from '../CountDown/CountDown';
+import Button from '../Button/Button';
 
 const StyledDeadline = styled.div`
     padding: 5px;
@@ -26,7 +27,7 @@ color: ${props => props.theme.color.primary.oldgrey};
 
 class Deadline extends React.Component{
     render(){
-        const { theme, deadlines } = this.props
+        const { theme, deadlines, deleteDeadline } = this.props
 
         return (
             <StyledDeadline>
@@ -47,7 +48,7 @@ class Deadline extends React.Component{
                                     <tr>
                                         <Styledtd theme={theme}>{deadline.mataKuliah}</Styledtd>
                                         <Styledtd theme={theme}><CountDown /></Styledtd>
-                                        <Styledtd theme={theme}><a href="#">detail </a> | <a href="#"> hapus</a></Styledtd>
+                                        <Styledtd theme={theme}><a href="#">detail </a> | <Button text="Hapus" color="red" backgroundColor="white" onClick={deleteDeadline} index={index}  /> </Styledtd>
                                     </tr>
                                 )
                             })
