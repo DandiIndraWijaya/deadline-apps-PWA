@@ -30,9 +30,9 @@ class DeadLineList extends React.Component{
         });
     }
 
-    addDeadline = (mataKuliah, tugas, due) => {
+    addDeadline = (task, due) => {
         const { deadlines } = this.state;
-        const addedDeadline = [...deadlines, {mataKuliah: mataKuliah, tugas: tugas, due: due}];
+        const addedDeadline = [...deadlines, {task: task, due: due}];
         this.setState({
             deadlines: addedDeadline
         });

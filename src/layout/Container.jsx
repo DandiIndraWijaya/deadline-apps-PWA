@@ -14,7 +14,7 @@ const Container = ({
     }) => {
     const containerStyles = css`
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: ${flexWrap};
         justify-content: ${justifyContent};
         align-items: ${alignItems};
@@ -22,9 +22,9 @@ const Container = ({
         height: ${height};
         width: 100%;
         min-height: ${minHeight};
-        @media (max-width: 600px) {
+        /* @media (max-width: 600px) {
             flex-direction: column;
-        }
+        } */
 
     `;
 

@@ -43,26 +43,26 @@ const CountDown = ({deadline}) => {
         <section className="countdown" style={{ display: 'flex', justifyContent:"end" }}>
             <section>
                 <p>{timerDays}</p>
-                <p><small>Hari</small></p>
+                <p><small>Days</small></p>
             </section>
             <span>{timerDays !== 0 ? ':' : ''}</span>
 
             <section>
                 <p>{timerHours}</p>
-                <p><small>Jam</small></p>
+                <p><small>Hours</small></p>
             </section>
             <span>{timerHours !== 0 ? ':' : ''}</span>
 
 
             <section>
                 <p>{timerMinutes}</p>
-                <p><small>Menit</small></p>
+                <p><small>Minutes</small></p>
             </section>
             <span>{timerMinutes !== 0 ? ':' : ''}</span>
 
             <section>
                 <p>{timerSeconds}</p>
-                <p><small>Detik</small></p>
+                <p><small>Second</small></p>
             </section>
         </section>
        

@@ -16,6 +16,7 @@ const Styledtable = styled.table`
 const Styledth = styled.th`
     color: ${props => props.theme.color.primary.oldgrey};
     font-weight: bold;
+    text-decoration: underline;
 `;
 
 const Styledtd = styled.td`
@@ -41,9 +42,9 @@ class Deadline extends React.Component{
                     <Styledtable>
                         <thead>
                             <tr>
-                                <Styledth theme={theme}>Mata Kuliah</Styledth>
-                                <Styledth theme={theme}>Sisa Waktu</Styledth>
-                                <Styledth theme={theme}>Aksi</Styledth>
+                                <Styledth theme={theme}>Tasks</Styledth>
+                                <Styledth theme={theme}>Your Time</Styledth>
+                                <Styledth theme={theme}></Styledth>
                             </tr>
                         </thead>
     
@@ -53,9 +54,9 @@ class Deadline extends React.Component{
                                 deadlines.map((deadline, index ) => {
                                     return (
                                         <tr key={index}>
-                                            <Styledtd theme={theme}>{deadline.mataKuliah}</Styledtd>
+                                            <Styledtd theme={theme}>{deadline.task}</Styledtd>
                                             <Styledtd theme={theme}><CountDown deadline={deadline.due} /></Styledtd>
-                                            <Styledtd theme={theme}><a href="#">detail </a> | <Button text="Hapus" color="red"  margin="0" backgroundColor="white" index={index} onClick={deleteDeadline} /> </Styledtd>
+                                            <Styledtd theme={theme}><Button text="Remove" color="#f55e53" fontSize="8pt"  margin="0" backgroundColor="white" index={index} onClick={deleteDeadline} /> </Styledtd>
                                         </tr>
                                     )
                                 })
@@ -67,7 +68,7 @@ class Deadline extends React.Component{
             )}else{
                 return (
                 <StyledNoTask>
-                    <h1>Tidak ada tugas :)</h1> 
+                    <h1>No Task :)</h1> 
                 </StyledNoTask>
                 )
             }

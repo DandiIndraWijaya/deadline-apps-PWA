@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import DateTimePicker from 'react-datetime-picker';
 
 const StyledItem = styled.div`
-    margin-top: 10px;
+    margin-top: 5px;
 `;
 
 const StyledLabel = styled.label`
@@ -39,22 +39,15 @@ const StyledInput = styled.input`
 
 class DeadlineForm extends React.Component {
     state = {
-        mataKuliah: '',
-        tugas: '',
+        task: '',
         date: new Date(),
     }
 
     onChange = date => this.setState({ date })
 
-    handleOnChangeMatkul = e => {
+    handleOnChangeTask = e => {
         this.setState({
-            mataKuliah: e.target.value
-        })
-    }
-
-    handleOnChangeTugas = e => {
-        this.setState({
-            tugas: e.target.value
+            task: e.target.value
         })
     }
 
@@ -67,24 +60,23 @@ class DeadlineForm extends React.Component {
     handleForSubmit = e =>{
         
         const { addDeadline } = this.props;
-        const { mataKuliah, tugas, date } = this.state;
+        const { task, date } = this.state;
         e.preventDefault();
 
-        if(mataKuliah === '' || tugas === '' || date === ''){
+        if(task === '' || date === ''){
             alert("Form harus diisi semua");
             return;
         }
-            addDeadline(mataKuliah, tugas, date);
+            addDeadline(task, date);
             this.setState({
-                mataKuliah: '',
-                tugas: '',
+                task: '',
                 date: ''
             });
         
     }
 
     render(){
-        const { mataKuliah, tugas, date } = this.state;
+        const { task, date } = this.state;
         const { theme, showForm } = this.props;
 
         if(showForm){
@@ -92,26 +84,14 @@ class DeadlineForm extends React.Component {
                 <form onSubmit={this.handleForSubmit}>  
                     <Container>
                         <StyledItem>
-                            <StyledLabel theme={theme} id="matkul">Mata Kuliah</StyledLabel>
+                            <StyledLabel theme={theme} id="task">Task</StyledLabel>
                             <br></br>
                             <StyledInput
-                                onChange={this.handleOnChangeMatkul} 
-                                value={mataKuliah} 
+                                onChange={this.handleOnChangeTask} 
+                                value={task} 
                                 theme={theme} 
                                 type="text" 
-                                id="matkul"
-                            />
-                        </StyledItem>
-    
-                        <StyledItem>
-                            <StyledLabel theme={theme} id="tugas">Tugas</StyledLabel>
-                            <br></br>
-                            <StyledInput
-                                onChange={this.handleOnChangeTugas} 
-                                value={tugas} 
-                                theme={theme} 
-                                type="text" 
-                                id="tugas" 
+                                id="task"
                             />
                         </StyledItem>
     
@@ -120,7 +100,7 @@ class DeadlineForm extends React.Component {
                             <br></br>
                             <StyledDateTimePicker>
                                 <DateTimePicker
-                                locale="hu-HU"
+                                locale="id-ID"
                                 format="dd-MM-y h:mm a"
                                 onChange={this.onChange}
                                 value={date}
@@ -129,7 +109,7 @@ class DeadlineForm extends React.Component {
                         </StyledItem>
     
                         <StyledItem>
-                            <Button text="Tambah" color="white" backgroundColor={theme.color.primary.skyblue} margin="24px 0px"  />
+                            <Button text="Add" color="white" backgroundColor={theme.color.primary.skyblue} margin="3px 5px"  />
                         </StyledItem>
                         
                     </Container>
