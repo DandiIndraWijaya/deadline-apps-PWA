@@ -41,7 +41,7 @@ class DeadlineForm extends React.Component {
     state = {
         mataKuliah: '',
         tugas: '',
-        due: '',
+        date: new Date(),
     }
 
     onChange = date => this.setState({ date })
@@ -67,25 +67,24 @@ class DeadlineForm extends React.Component {
     handleForSubmit = e =>{
         
         const { addDeadline } = this.props;
-        const { mataKuliah, tugas, due } = this.state;
+        const { mataKuliah, tugas, date } = this.state;
         e.preventDefault();
 
-        if(mataKuliah === '' || tugas === '' || due === ''){
+        if(mataKuliah === '' || tugas === '' || date === ''){
             alert("Form harus diisi semua");
             return;
         }
-            addDeadline(mataKuliah, tugas, due);
-            console.log(due);
+            addDeadline(mataKuliah, tugas, date);
             this.setState({
                 mataKuliah: '',
                 tugas: '',
-                due: ''
+                date: ''
             });
         
     }
 
     render(){
-        const { mataKuliah, tugas, due } = this.state;
+        const { mataKuliah, tugas, date } = this.state;
         const { theme, showForm } = this.props;
 
         if(showForm){
@@ -128,8 +127,10 @@ class DeadlineForm extends React.Component {
                             /> */}
                             <StyledDateTimePicker>
                                 <DateTimePicker
+                                locale="hu-HU"
+                                format="dd-MM-y h:mm a"
                                 onChange={this.onChange}
-                                value={due}
+                                value={date}
                                 />
                             </StyledDateTimePicker>
                         </StyledItem>

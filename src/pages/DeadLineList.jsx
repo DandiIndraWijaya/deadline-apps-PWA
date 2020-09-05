@@ -9,12 +9,19 @@ import Deadline from '../components/Deadline/Deadline';
 class DeadLineList extends React.Component{
     state = {
         showForm: false,
-        deadlines: [
-            { mataKuliah: "Web Programming", tugas: "Membuat Layout Web", due: "28 September 2020" },
-            { mataKuliah: "Praktikum Web Programming", tugas: "Membuat Layout Web", due: "15 September 2020" },
-            { mataKuliah: "Media", tugas: "Membuat Brosur", due: "5 September 2020" },
-        ],
+        deadlines: [],
         index: null
+    }
+
+    componentDidMount(){
+        const deadlinesLocalStorage = JSON.parse(localStorage.getItem('myDeadlinesApps')) || [];
+        this.setState({
+            deadlines: deadlinesLocalStorage
+        })
+    }
+
+    componentDidUpdate(){
+        localStorage.setItem('myDeadlinesApps', JSON.stringify(this.state.deadlines));
     }
 
     showFormToggle = () => {
@@ -36,8 +43,7 @@ class DeadLineList extends React.Component{
     deleteDeadline = e => {
         const index = e.target.dataset.index; 
         const { deadlines } = this.state;
-        deadlines.splice(index, 1)
-        console.log(index)
+        deadlines.splice(index, 1);
         this.setState({
             deadlines: deadlines
         })
