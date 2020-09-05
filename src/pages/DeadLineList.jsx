@@ -14,9 +14,10 @@ class DeadLineList extends React.Component{
     }
 
     componentDidMount(){
-        const deadlinesLocalStorage = JSON.parse(localStorage.getItem('myDeadlinesApps')) || [];
+        let newDeadlines = JSON.parse(localStorage.getItem('myDeadlinesApps')) || [];
+
         this.setState({
-            deadlines: deadlinesLocalStorage
+            deadlines: newDeadlines
         })
     }
 
@@ -33,8 +34,34 @@ class DeadLineList extends React.Component{
     addDeadline = (task, due) => {
         const { deadlines } = this.state;
         const addedDeadline = [...deadlines, {task: task, due: due}];
+
+        let newDeadlines = addedDeadline;
+
+        if(deadlines.length !== 0){
+            let len = newDeadlines.length -1;
+        let swapped;
+        do {
+            swapped = false;
+            for (let i = 0; i < len; i++) {
+                console.log(newDeadlines[i].due)
+                let now = new Date().getTime();
+                let deadlineJ = new Date(newDeadlines[i].due).getTime() - now;
+                let deadlineI = new Date(newDeadlines[i+1].due).getTime() - now;
+                if (deadlineJ > deadlineI) {
+                    let tmp = newDeadlines[i];
+                    newDeadlines[i] = newDeadlines[i + 1];
+                    newDeadlines[i + 1] = tmp;
+                    swapped = true;
+                }
+            }
+        } while (swapped);
+        }
         this.setState({
-            deadlines: addedDeadline
+            deadlines: []
+        });
+
+        this.setState({
+            deadlines: newDeadlines
         });
     }
 
@@ -47,7 +74,6 @@ class DeadLineList extends React.Component{
         this.setState({
             deadlines: deadlines
         });
-        this.render();
     }
     
 

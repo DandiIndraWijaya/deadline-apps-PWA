@@ -81,7 +81,7 @@ class DeadlineForm extends React.Component {
 
         if(showForm){
             return (
-                <form autocomplete="off" onSubmit={this.handleForSubmit}>  
+                <form autoComplete="off" onSubmit={this.handleForSubmit}>  
                     <Container>
                         <StyledItem>
                             <StyledLabel theme={theme} id="task">Task</StyledLabel>

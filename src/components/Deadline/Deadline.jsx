@@ -36,9 +36,10 @@ const StyledNoTask = styled.div`
 `;
 
 class Deadline extends React.Component{
+    
     render(){
         const { theme, deadlines, deleteDeadline } = this.props
-
+        
         if(deadlines.length > 0){
             return (
                 <StyledDeadline>
@@ -50,7 +51,7 @@ class Deadline extends React.Component{
                                 <Styledth theme={theme}></Styledth>
                             </tr>
                         </thead>
-    
+                        
                         <tbody>
                             {
                                 deadlines.length > 0 && 
