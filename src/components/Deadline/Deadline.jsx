@@ -51,7 +51,7 @@ class Deadline extends React.Component{
                     <Styledtable>
                         <thead>
                             <tr>
-                                <Styledth theme={theme}>Tasks & Deadlines</Styledth>
+                                <Styledth theme={theme}>Task & Deadline</Styledth>
                                 <Styledth theme={theme}>Your Time</Styledth>
                                 <Styledth theme={theme}></Styledth>
                             </tr>

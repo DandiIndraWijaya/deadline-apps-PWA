@@ -50,28 +50,28 @@ const CountDown = ({deadline}) => {
     }else{
         return (
             <section className="countdown" style={{ display: 'flex', justifyContent:"end" }}>
-                <section>
+                <section style={{ opacity: timerDays === 0 ? '0.5' : '1' }} >
                     <p>{timerDays}</p>
                     <p><small>Days</small></p>
                 </section>
                 <span>{timerDays !== 0 ? ':' : ''}</span>
     
-                <section>
+                <section style={{ opacity: timerHours === 0 ? '0.5' : '1' }}>
                     <p>{timerHours}</p>
                     <p><small>Hours</small></p>
                 </section>
                 <span>{timerHours !== 0 ? ':' : ''}</span>
     
     
-                <section>
+                <section style={{ opacity: timerMinutes === 0 ? '0.5' : '1' }}>
                     <p>{timerMinutes}</p>
                     <p><small>Minutes</small></p>
                 </section>
                 <span>{timerMinutes !== 0 ? ':' : ''}</span>
     
-                <section>
+                <section style={{ opacity: timerSeconds === 0 ? '0.5' : '1' }}>
                     <p>{timerSeconds}</p>
-                    <p><small>Second</small></p>
+                    <p><small>Seconds</small></p>
                 </section>
             </section>
            
