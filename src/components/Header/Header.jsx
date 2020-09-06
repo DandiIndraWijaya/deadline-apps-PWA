@@ -21,7 +21,7 @@ class Header extends React.Component {
                 <StyledHeader theme={theme}>
                     <h1 style={{ textAlign: 'center', textDecoration: 'underline' }}>My Deadline</h1>
                 </StyledHeader>
-                <Button onClick={showFormToggle} text={showForm ? 'Finnish' : 'New Task'} backgroundColor="white" margin="5px" color={theme.color.primary.skyblue} fontSize="18px" />
+                <Button onClick={showFormToggle} text={showForm ? 'X' : 'New Task'} backgroundColor="white" margin="5px" color={theme.color.primary.skyblue} fontSize="18px" />
             </section>
         )
     }

@@ -56,13 +56,11 @@ class DeadLineList extends React.Component{
             }
         } while (swapped);
         }
-        this.setState({
-            deadlines: []
-        });
 
         this.setState({
             deadlines: newDeadlines
         });
+        window.location.reload();
     }
 
 
@@ -74,6 +72,7 @@ class DeadLineList extends React.Component{
         this.setState({
             deadlines: deadlines
         });
+        window.location.reload();
     }
     
 
@@ -85,7 +84,7 @@ class DeadLineList extends React.Component{
             <Screen>
                 <Header showForm={showForm} showFormToggle={this.showFormToggle} />
                 <DeadlineForm showForm={showForm} addDeadline={this.addDeadline}  />
-                <hr/>
+                
                 <Deadline deadlineIndex={this.state.index} deleteDeadline={this.deleteDeadline} deadlines={deadlines} />
             </Screen>
         )

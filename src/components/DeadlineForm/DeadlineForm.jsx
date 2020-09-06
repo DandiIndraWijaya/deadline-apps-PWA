@@ -100,7 +100,6 @@ class DeadlineForm extends React.Component {
                             <br></br>
                             <StyledDateTimePicker>
                                 <DateTimePicker
-                                locale="id-ID"
                                 format="dd-MM-y h:mm a"
                                 onChange={this.onChange}
                                 value={date}

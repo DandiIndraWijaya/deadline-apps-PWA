@@ -1,20 +1,25 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { createRef } from 'react';
+import styled from '@emotion/styled';
 import { withTheme } from 'emotion-theming';
 
 
-const CountDown = ({deadline}) => {
-    const [timerDays, setTimerDays] = useState('00');
-    const [timerHours, setTimerHours] = useState('00');
-    const [timerMinutes, setTimerMinutes] = useState('00');
-    const [timerSeconds, setTimerSeconds] = useState('00');
-    let interval = useRef();
 
-    const startTimer = (deadline) => {
-        if(deadline === '0'){
-            return;
-        }
+class CountDown extends React.Component{
+    constructor() {
+        super();
+        this.interval = createRef();
+      }
+
+    state = {
+        timerDays: '00',
+        timerHours: '00',
+        timerMinutes: '00',
+        timerSeconds: '00'
+    }
+
+    startTimer = (deadline) => {
         let countDownDate = new Date(deadline).getTime();
-        interval = setInterval(() => {
+        this.interval = setInterval(() => {
             let now = new Date().getTime();
             let distance = countDownDate - now;
 
@@ -24,60 +29,62 @@ const CountDown = ({deadline}) => {
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
             if(distance < 0){
-                clearInterval(interval.current);
+                clearInterval(this.interval.current);
             }else{
-                setTimerDays(days);
-                setTimerHours(hours);
-                setTimerMinutes(minutes);
-                setTimerSeconds(seconds);
+                this.setState({
+                    timerDays: days,
+                    timerHours: hours,
+                    timerMinutes: minutes,
+                    timerSeconds: seconds
+                })
             }
         }, 1000);
         
     }
 
-    useEffect(() => {
-        if(deadline === ''){
-            return;
-        }
-        startTimer(deadline);
+    componentDidMount(){
+        const { deadline } = this.props;
+        this.startTimer(deadline);
         return () => {
-            clearInterval(interval.current);
+            clearInterval(this.interval.current);
         }
-    })
+    }
 
-    if(deadline === ''){
-        return null
-    }else{
-        return (
-            <section className="countdown" style={{ display: 'flex', justifyContent:"end" }}>
+    componentDidUpdate(){
+        const { deadline } = this.props;
+        this.startTimer(deadline);
+    }
+
+    render(){
+        const { timerDays, timerHours, timerMinutes, timerSeconds } = this.state;
+        return(
+            <section style={{ display: 'flex', justifyContent:"end" }}>
                 <section>
                     <p>{timerDays}</p>
                     <p><small>Days</small></p>
                 </section>
                 <span>{timerDays !== 0 ? ':' : ''}</span>
-    
+
                 <section>
                     <p>{timerHours}</p>
                     <p><small>Hours</small></p>
                 </section>
                 <span>{timerHours !== 0 ? ':' : ''}</span>
-    
-    
+
+
                 <section>
                     <p>{timerMinutes}</p>
                     <p><small>Minutes</small></p>
                 </section>
                 <span>{timerMinutes !== 0 ? ':' : ''}</span>
-    
+
                 <section>
                     <p>{timerSeconds}</p>
                     <p><small>Second</small></p>
                 </section>
             </section>
-           
         )
     }
-    
 }
 
-export default withTheme(CountDown);
+export default withTheme(CountDown)
